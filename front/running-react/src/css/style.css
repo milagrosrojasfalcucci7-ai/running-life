@@ -1,0 +1,187 @@
+ *{
+margin: 0;
+padding: 0;
+box-sizing: border-box ;  
+}
+
+body{ 
+  background-color:white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lexend', sans-serif;
+
+}
+
+/*HOME*/
+header{
+position: relative;
+z-index: 1000; /*puse esto xq el carousel me tapaba el header y no me redireccionaba a la otra pag*/
+  background-color: #191918;
+  padding: 1rem 2rem;
+}
+
+.menu-nav{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+    width: 140px;
+}
+
+.menu-nav ul{
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.menu-nav a{
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: aliceblue;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .distancia-container {
+    flex-direction: column;
+  }
+
+  .grid-galeria {
+    grid-template-columns: 1fr;
+  }
+}
+
+.carousel{
+ width: 95%;
+  margin: 40px auto;
+}
+.carousel-caption{ 
+  background-color: rgba(0.1, 0.1, 0.1, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.carousel-inner { 
+padding: 0.5rem;
+}
+
+.carousel-item img {
+  height: 500px;      
+  object-fit: cover;   
+}
+
+h2 {
+  margin: 3rem auto;
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+/*CARD DISTANCIAS*/
+.distancia-section{
+  max-width: 1200px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.distancia-container{
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.distancia-card{
+  background-color: #dbd5cc;
+  padding: 2rem;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: -13px -4px 6px 2px rgba(0, 0, 0, 0.12);
+}
+
+/*boton de inscripcion*/
+.btn-inscribirme {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+/* GALERIA */
+#galeria {
+  padding: 40px;
+  text-align: center;
+}
+
+.grid-galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.grid-galeria img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* CONTACTO */
+#contacto {
+  padding: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+input, textarea, select {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+/* FOOTER */
+footer {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  margin-top: auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-nav{
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* FORMULARIO */
+.formulario {
+  color: #dbd5cc;
+  background-image: url("../img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/*JAVA.SCRIPT*/
+.activo {
+  background-color: black;
+  color: white;
+  transform: scale(1.05);
+}
+
+.info-extra {
+    display: none;
+    margin-top: 10px;
+}

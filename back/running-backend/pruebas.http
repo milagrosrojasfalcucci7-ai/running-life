@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/inscripciones
+Content-Type: application/json
+
+{
+  "nombre": "Lucía Pérez",
+  "email": "lucia@email.com",
+  "distancia": "21K"
+}

@@ -1,0 +1,101 @@
+ *{
+margin: 0;
+padding: 0;
+box-sizing: border-box ;  
+}
+
+body{ 
+  background-color:white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lexend', sans-serif;
+}
+/*HOME*/
+header{
+position: relative;
+z-index: 1000; /*puse esto xq el carousel me tapaba el header y no me redireccionaba a la otra pag*/
+  background-color: #191918;
+  padding: 1rem 2rem;
+}
+
+.menu-nav{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+    width: 140px;
+}
+
+.menu-nav ul{
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.menu-nav a{
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: aliceblue;
+  transition: 0.3s;
+}
+/*esto es para q quede responsive*/
+@media (max-width: 768px) {
+  .distancia-container {
+    flex-direction: column;
+  }
+
+  .grid-galeria {
+    grid-template-columns: 1fr;
+  }
+}
+.menu-nav a:hover {
+  color: orange;
+}
+
+/*imagen del kit*/
+.kit.img{
+width: 95%;
+margin: 40% auto;
+height: auto;
+display: block;
+}
+
+img{
+  max-width: 100%; /*para q no me quede tan grande*/
+}
+
+/*sponsors de carrera*/
+.sponsors {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: orange;
+}
+
+h2.titulo-kit {
+ color:#ff6a00;
+ text-align: center;
+}
+
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  margin-top: auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-nav{
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  list-style: none;
+}

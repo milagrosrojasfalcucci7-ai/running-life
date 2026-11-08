@@ -1,0 +1,118 @@
+ *{
+margin: 0;
+padding: 0;
+box-sizing: border-box ;  
+}
+
+body{ 
+  background-color:white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lexend', sans-serif;
+
+}
+
+/*HOME*/
+header{
+position: relative;
+z-index: 1000; /*puse esto xq el carousel me tapaba el header y no me redireccionaba a la otra pag*/
+  background-color: #191918;
+  padding: 1rem 2rem;
+}
+
+.logo {
+    width: 140px;
+}
+
+.lista-menu{
+display: flex;
+gap: 40px;
+margin-left: auto;
+padding:0;
+list-style: none;
+align-items: center;
+margin-right:15px;
+}
+.lista-menu a{
+  color:white !important;
+  text-decoration:none !important;
+  font-size:1.1rem;
+  font-weight:400;
+}
+.form-nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 20px;
+}
+.form-nav a{
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: aliceblue;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .distancia-container {
+    flex-direction: column;
+  }
+
+  .grid-galeria {
+    grid-template-columns: 1fr;
+  }
+}
+
+h2{
+    text-align: center;
+}
+
+/*boton de inscripcion*/
+.btn-inscribirme {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+input, textarea, select {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+/* FOOTER */
+footer {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  margin-top: auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-nav{
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* FORMULARIO */
+.formulario {
+  color: #dbd5cc;
+  background-image: url("../img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+}
