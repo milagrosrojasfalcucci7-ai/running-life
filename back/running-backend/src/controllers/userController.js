@@ -63,13 +63,22 @@ const actualizarUsuario = async (req, res) => {
     );
 
     if (!usuarioActualizado) {
-      return res.status(404).json({ mensaje: "Usuario no encontrado" });
+      return res.status(404).json({
+        mensaje: "Usuario no encontrado"
+      });
     }
 
     return res.status(200).json({
       mensaje: "Usuario actualizado correctamente",
-      usuario: usuarioActualizado
+      usuario: {
+        _id: usuarioActualizado._id,
+        nombre: usuarioActualizado.nombre,
+        email: usuarioActualizado.email,
+        rol: usuarioActualizado.rol,
+        createdAt: usuarioActualizado.createdAt
+      }
     });
+
   } catch (error) {
     return res.status(400).json({
       mensaje: "Error al actualizar el usuario",
@@ -79,25 +88,25 @@ const actualizarUsuario = async (req, res) => {
 };
 
 // Eliminar un usuario
-const eliminarUsuario = async (req, res) => {
-  try {
-    const usuarioEliminado = await userService.eliminarUsuario(req.params.id);
+    async function eliminarUsuario(req, res) {
+      try {
+        const usuarioEliminado = await userService.eliminarUsuario(req.params.id);
 
-    if (!usuarioEliminado) {
-      return res.status(404).json({ mensaje: "Usuario no encontrado" });
+        if (!usuarioEliminado) {
+          return res.status(404).json({ mensaje: "Usuario no encontrado" });
+        }
+
+        return res.status(200).json({
+          mensaje: "Usuario eliminado correctamente",
+          usuario: usuarioEliminado
+        });
+      } catch (error) {
+        return res.status(500).json({
+          mensaje: "Error al eliminar el usuario",
+          error: error.message
+        });
+      }
     }
-
-    return res.status(200).json({
-      mensaje: "Usuario eliminado correctamente",
-      usuario: usuarioEliminado
-    });
-  } catch (error) {
-    return res.status(500).json({
-      mensaje: "Error al eliminar el usuario",
-      error: error.message
-    });
-  }
-};
 
 module.exports = {
   obtenerUsuarios,
