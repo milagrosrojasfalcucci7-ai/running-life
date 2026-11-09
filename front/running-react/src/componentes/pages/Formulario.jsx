@@ -8,19 +8,45 @@ function Formulario() {
  const [distancia, setDistancia] = useState("");
  const [experiencia, setExperiencia] = useState("");
  const [comentario, setComentario] = useState("");
- const handleSubmit = (e) => {
+
+ const handleSubmit = async (e) => {
   e.preventDefault();
 
-  console.log({
-  nombre,
-  email,
-  telefono,
-  distancia,
-  experiencia,
-  comentario
-});
+  try {
+    const respuesta = await fetch(
+      "http://localhost:3000/api/inscripciones",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nombre,
+          email,
+          telefono,
+          distancia,
+          experiencia,
+          comentario
+        })
+      }
+    );
 
+    const datos = await respuesta.json();
+
+    if (!respuesta.ok) {
+      throw new Error(datos.error || datos.mensaje);
+    }
+
+    alert("¡Inscripción realizada correctamente!");
+
+    handleReset();
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("No se pudo realizar la inscripción: " + error.message);
+  }
 };
+
 const handleReset = () => {
   setNombre("");
   setEmail("");

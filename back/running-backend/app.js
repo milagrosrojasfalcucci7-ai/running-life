@@ -1,21 +1,29 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const Result = require("./models/Result");
 const categoryRoutes = require("./src/routes/categoryRoute");
 const resultRoutes = require("./src/routes/resultRoute");
 const userRoutes = require("./src/routes/userRoute");
-
+const inscriptionRoutes = require("./src/routes/inscriptionRoute");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(cors());
+
 app.use("/api/categories", categoryRoutes);
 app.use("/api/results", resultRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/inscripciones", inscriptionRoutes);
+
 
 // Conexión con MongoDB
 mongoose
-  .connect("mongodb://127.0.0.1:27017/runningdDB")
+  mongoose
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Conectado a MongoDB correctamente");
 
@@ -30,28 +38,4 @@ mongoose
 // Ruta principal
 app.get("/", (req, res) => {
   res.send("¡Bienvenidos a Running Life!");
-});
-
-// Consultar resultados
-app.get("/api/results", (req, res) => {
-  res.send("Acá estarán los resultados de Running Life");
-});
-
-// Crear una inscripción
-app.post("/api/inscripciones", async (req, res) => {
-  try {
-    const nuevoResultado = new Result(req.body);
-
-    await nuevoResultado.save();
-
-    return res.status(201).json({
-      mensaje: "Inscripción guardada correctamente",
-      resultado: nuevoResultado
-    });
-  } catch (error) {
-    return res.status(500).json({
-      mensaje: "Error al guardar la inscripción",
-      error: error.message
-    });
-  }
 });
